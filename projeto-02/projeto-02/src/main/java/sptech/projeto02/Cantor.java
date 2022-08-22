@@ -40,4 +40,20 @@ public class Cantor {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setCache(Integer cache) {
+        this.cache = cache;
+    }
 }

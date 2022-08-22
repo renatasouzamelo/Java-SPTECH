@@ -41,13 +41,28 @@ public class cantorController {
 
     @GetMapping("/celebridades")
     public List <Cantor> getCelebridades () {
-        List<Cantor> celbridades = new ArrayList<>();
+        List<Cantor> celebridades = new ArrayList<>();
         for (Cantor cantor : cantores) {
             if (cantor.getCache() > 100_000) {
-                celbridades.add(cantor);
+                celebridades.add(cantor);
 
             }
         }
-        return celbridades;
+        return celebridades;
     }
+
+    @PutMapping("/{id}")
+    public Cantor putCantor(@PathVariable int id, @RequestBody Cantor updateCantor){
+        for(Cantor cantor: cantores){
+            if (cantor.getId() ==id){
+                cantor.setCache(updateCantor.getCache());
+                cantor.setNome(updateCantor.getNome());
+
+                return cantor;
+            }
+        }
+        return null;
+
+    }
+
 }
