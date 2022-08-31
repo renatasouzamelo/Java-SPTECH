@@ -12,7 +12,7 @@ public class LutadorController {
 
     private List<Lutador> lutadores = new ArrayList<>();
 
-    @PostMapping
+    @PostMapping  // Criar um método HTTP
     public Lutador post(@RequestBody Lutador novoLutador) {
         lutadores.add(novoLutador);
         return novoLutador;
@@ -21,7 +21,7 @@ public class LutadorController {
     @GetMapping
     public List<Lutador> getLutadores() {
         return lutadores;
-    }
+    } // Recuperar método HTTP
 
     @PatchMapping("/{posicaoBate}/golpe/{posicaoApanha}")
     public List<Lutador> golpear(@PathVariable int posicaoBate,
@@ -46,7 +46,7 @@ public class LutadorController {
         return List.of(lutadorQueBate, lutadorQueApanha);
     }
 
-    @PatchMapping("/sobreviventes")
+    @GetMapping("/sobreviventes")
     public List<Lutador> getSobreviventes() {
          List<Lutador> sobreviventes = new ArrayList<>();
 

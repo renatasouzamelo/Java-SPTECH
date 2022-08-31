@@ -12,18 +12,18 @@ public class GrifeController {
 
     private List<Grife> grifes = new ArrayList<>();
 
-    @PostMapping
+    @PostMapping // Criar recurso
     public Grife post(@RequestBody Grife novaGrife) {
         grifes.add(novaGrife);
         return novaGrife;
     }
 
-    @GetMapping
+    @GetMapping // Recuperar recurso
     public List<Grife> getGrifes() {
         return grifes;
     }
 
-    @DeleteMapping("/{posicao}")
+    @DeleteMapping("/{posicao}") // Deletar recurso
     public String delete(@PathVariable int posicao) {
         if (posicao >= 0 && posicao < grifes.size()) {
             grifes.remove(posicao);
@@ -32,7 +32,7 @@ public class GrifeController {
         return "Não encontrada";
     }
 
-    @PutMapping("/{posicao}")
+    @PutMapping("/{posicao}") // Atualizar recurso
     public Grife put(@PathVariable int posicao,
                         @RequestBody Grife grife) {
         if (posicao >= 0 && posicao < grifes.size()) {
